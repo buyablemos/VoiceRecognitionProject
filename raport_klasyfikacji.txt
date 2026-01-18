@@ -1,0 +1,28 @@
+                precision    recall  f1-score   support
+
+  Radek_otwórz       1.00      1.00      1.00         6
+ Radek_aktywuj       1.00      1.00      1.00         6
+   Radek_prawo       1.00      1.00      1.00         6
+    Radek_lewo       1.00      1.00      1.00         6
+    Radek_stop       0.86      1.00      0.92         6
+ Radek_zamknij       1.00      1.00      1.00         6
+  Radek_wyłącz       1.00      1.00      1.00         6
+     Radek_dół       1.00      1.00      1.00         6
+ Radek_jasność       1.00      1.00      1.00         6
+    Radek_góra       1.00      0.83      0.91         6
+Radek_głośność       1.00      1.00      1.00         6
+  Dawid_otwórz       1.00      1.00      1.00         6
+ Dawid_aktywuj       1.00      1.00      1.00         6
+   Dawid_prawo       0.71      0.83      0.77         6
+    Dawid_lewo       0.80      0.67      0.73         6
+    Dawid_stop       0.86      1.00      0.92         6
+ Dawid_zamknij       1.00      1.00      1.00         6
+  Dawid_wyłącz       1.00      1.00      1.00         6
+     Dawid_dół       1.00      0.83      0.91         6
+ Dawid_jasność       1.00      1.00      1.00         6
+    Dawid_góra       1.00      1.00      1.00         6
+Dawid_głośność       1.00      1.00      1.00         6
+
+      accuracy                           0.96       132
+     macro avg       0.96      0.96      0.96       132
+  weighted avg       0.96      0.96      0.96       132

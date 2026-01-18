@@ -3,7 +3,7 @@ from scipy.io import wavfile
 import os
 import time
 
-# --- KONFIGURACJA ---
+
 COMMANDS = [
     "start", "stop", "lewo", "prawo", "góra", "dół", 
     "otwórz", "zamknij", "jasność", "głośność", "wyłącz", "aktywuj"

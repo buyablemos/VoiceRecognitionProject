@@ -4,12 +4,11 @@ import numpy as np
 import tensorflow as tf
 import sounddevice as sd
 
-# --- KONFIGURACJA ---
 MODEL_PATH = "model_komend.h5"
 LABELS_PATH = "labels.npy"
 FS = 16000
 DURATION = 1.0 
-THRESHOLD = 0.02 # Jeśli nic nie wykrywa, zmniejsz do 0.01
+THRESHOLD = 0.02 # Próg głośności do wykrywania dźwięku
 CHUNK_SIZE = 1600 # Paczki po 0.1s
 
 
@@ -65,7 +64,7 @@ def run_recognition():
                 class_idx = np.argmax(prediction)
                 confidence = prediction[0][class_idx]
                 
-                if confidence > 0.7:
+                if confidence > 0.75:
                     print(f"   >>> ROZPOZNANO: {LABELS[class_idx].upper()} ({confidence*100:.0f}%)")
                 else:
                     print("   [?] Dźwięk zbyt niepewny.")
