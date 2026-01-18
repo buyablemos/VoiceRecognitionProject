@@ -15,28 +15,15 @@ num_classes = len(class_names)
 
 # Budowa modelu CNN
 model = models.Sequential([
-    # --- Blok 1: Wyciąganie prostych cech ---
-    layers.Conv2D(32, (3, 3), activation='relu', padding='same', input_shape=X_train.shape[1:]),
-    layers.Conv2D(32, (3, 3), activation='relu', padding='same'), # Dodatkowa warstwa konwolucyjna
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(128, X_train.shape[2], 1)),
     layers.MaxPooling2D((2, 2)),
-    layers.Dropout(0.2), # Lekki dropout już tutaj
-
-    # --- Blok 2: Wyciąganie złożonych cech ---
-    layers.Conv2D(64, (3, 3), activation='relu', padding='same'),
-    layers.Conv2D(64, (3, 3), activation='relu', padding='same'),
+    layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
-    layers.Dropout(0.3),
-
-    # --- Blok 3: Detale ---
-    layers.Conv2D(128, (3, 3), activation='relu', padding='same'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Dropout(0.4),
-
-    # --- Klasyfikator ---
+    layers.Dropout(0.25),
     layers.Flatten(),
     layers.Dense(128, activation='relu'),
-    layers.Dropout(0.5), # Agresywny dropout przed finałem (kluczowe!)
-    layers.Dense(len(class_names), activation='softmax')
+    layers.Dropout(0.5),
+    layers.Dense(num_classes, activation='softmax') # Klasyfikacja na N klas (osoba_komenda)
 ])
 
 model.compile(optimizer='adam',
@@ -44,7 +31,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 print("\nRozpoczynanie uczenia")
-history = model.fit(X_train, y_train, epochs=20, batch_size=32, validation_data=(X_test, y_test))
+history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_data=(X_test, y_test))
 
 
 # Zapis modelu
